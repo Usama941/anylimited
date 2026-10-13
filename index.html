@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AYN Limited — Business Utility Brokerage</title>
+<meta name="description" content="AYN Limited is a business utility brokerage helping companies compare, switch and renew water and energy contracts with trusted suppliers.">
+<meta property="og:title" content="AYN Limited — Business Utility Brokerage">
+<meta property="og:description" content="Compare, switch and renew your business water and energy contracts with trusted suppliers.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aynlimited.site/">
+<meta property="og:image" content="assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://aynlimited.site/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0f2a2a;          /* deep teal-green */
+    --ink-2:#1c3f3d;
+    --paper:#f7f4ee;        /* warm off-white */
+    --card:#ffffff;
+    --line:#e3ddd1;
+    --muted:#5b6b69;
+    --accent:#e0913a;       /* amber */
+    --accent-2:#f3c98b;
+    --mint:#cfe6dc;
+    --radius:18px;
+    --shadow:0 18px 40px -22px rgba(15,42,42,.35);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Manrope",system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{width:min(1160px,100% - 32px);margin-inline:auto}
+  h1,h2,h3{font-family:"Fraunces",Georgia,serif;font-weight:600;line-height:1.12;letter-spacing:-.01em}
+  em{font-style:italic;color:var(--accent)}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+  .eyebrow::before{content:"";width:22px;height:2px;background:var(--accent);border-radius:2px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 24px;border-radius:999px;font-weight:700;font-size:.95rem;transition:transform .2s,background .2s,box-shadow .2s;cursor:pointer;border:0;font-family:inherit}
+  .btn-primary{background:var(--accent);color:#1a1206;box-shadow:0 10px 24px -12px rgba(224,145,58,.9)}
+  .btn-primary:hover{transform:translateY(-2px);background:#ea9f4b}
+  .btn-ghost{border:1.5px solid rgba(255,255,255,.35);color:#fff}
+  .btn-ghost:hover{background:rgba(255,255,255,.08)}
+
+  /* NAV */
+  header{position:sticky;top:0;z-index:50;background:rgba(15,42,42,.92);backdrop-filter:blur(10px);color:#fff}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.15rem;letter-spacing:.02em}
+  .logo-mark{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:grid;place-items:center;font-family:"Fraunces",serif;color:var(--ink);font-size:1rem;font-weight:600}
+  .logo small{display:block;font-size:.68rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;opacity:.65;margin-top:-3px}
+  .nav-links{display:flex;gap:30px;align-items:center;font-size:.93rem;font-weight:500}
+  .nav-links a:not(.btn){opacity:.82;transition:opacity .2s}
+  .nav-links a:not(.btn):hover{opacity:1}
+  .nav-links .btn{padding:10px 18px}
+  .menu-btn{display:none;background:none;border:0;color:#fff;font-size:1.6rem;cursor:pointer}
+
+  /* HERO */
+  .hero{background:var(--ink);color:#fff;position:relative;overflow:hidden;padding:84px 0 120px}
+  .hero::before{content:"";position:absolute;width:620px;height:620px;right:-180px;top:-220px;border-radius:50%;background:radial-gradient(circle,rgba(224,145,58,.28),transparent 65%)}
+  .hero::after{content:"";position:absolute;inset:auto 0 0 0;height:80px;background:var(--paper);clip-path:ellipse(75% 100% at 50% 100%)}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;position:relative;z-index:1}
+  .hero h1{font-size:clamp(2.4rem,5.2vw,4rem);margin:18px 0 22px}
+  .hero p.lead{font-size:1.1rem;color:rgba(255,255,255,.78);max-width:540px;margin-bottom:34px}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:24px;padding:28px;backdrop-filter:blur(6px)}
+  .hero-card h4{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-2);margin-bottom:18px;font-weight:700}
+  .bill{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px dashed rgba(255,255,255,.16)}
+  .bill:last-of-type{border-bottom:0}
+  .bill span{color:rgba(255,255,255,.7);font-size:.92rem}
+  .bill strong{font-family:"Fraunces",serif;font-size:1.35rem}
+  .bill .tag{font-size:.75rem;padding:4px 10px;border-radius:999px;background:var(--mint);color:var(--ink);font-weight:700;margin-left:8px;font-family:"Manrope",sans-serif}
+  .hero-card .note{margin-top:16px;font-size:.78rem;color:rgba(255,255,255,.5)}
+
+  /* STATS */
+  .stats{margin-top:-56px;position:relative;z-index:2}
+  .stats-grid{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);display:grid;grid-template-columns:repeat(3,1fr);overflow:hidden}
+  .stat{padding:30px 32px;border-right:1px solid var(--line)}
+  .stat:last-child{border-right:0}
+  .stat b{display:block;font-family:"Fraunces",serif;font-size:2.4rem;color:var(--ink);line-height:1}
+  .stat span{color:var(--muted);font-size:.92rem}
+  .chips{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:28px}
+  .chip{background:var(--mint);color:var(--ink);padding:9px 16px;border-radius:999px;font-size:.88rem;font-weight:600}
+  .chip b{font-weight:800}
+
+  section{padding:100px 0}
+  .head{max-width:660px;margin-bottom:54px}
+  .head h2{font-size:clamp(2rem,3.6vw,2.8rem);margin:14px 0 14px}
+  .head p{color:var(--muted);font-size:1.05rem}
+  .center{text-align:center;margin-inline:auto}
+  .center .eyebrow::after{content:"";width:22px;height:2px;background:var(--accent);border-radius:2px}
+
+  /* STEPS */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;position:relative}
+  .steps::before{content:"";position:absolute;top:34px;left:12%;right:12%;height:2px;background:repeating-linear-gradient(90deg,var(--accent) 0 8px,transparent 8px 16px);opacity:.5}
+  .step{position:relative;text-align:center;padding:0 10px}
+  .step-num{width:68px;height:68px;margin:0 auto 22px;border-radius:50%;background:var(--ink);color:var(--accent-2);display:grid;place-items:center;font-family:"Fraunces",serif;font-size:1.4rem;position:relative;z-index:1;box-shadow:0 0 0 8px var(--paper)}
+  .step h3{font-size:1.4rem;margin-bottom:10px}
+  .step p{color:var(--muted)}
+
+  /* WHY */
+  .why{background:var(--ink-2);color:#fff}
+  .why .head p{color:rgba(255,255,255,.7)}
+  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .why-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:32px;transition:transform .25s,border-color .25s}
+  .why-card:hover{transform:translateY(-4px);border-color:rgba(224,145,58,.5)}
+  .icon{width:50px;height:50px;border-radius:14px;background:rgba(224,145,58,.15);display:grid;place-items:center;margin-bottom:22px}
+  .icon svg{width:24px;height:24px;stroke:var(--accent);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .why-card h3{font-size:1.3rem;margin-bottom:10px}
+  .why-card p{color:rgba(255,255,255,.7)}
+
+  /* TESTIMONIALS */
+  .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .review{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px;display:flex;flex-direction:column;box-shadow:var(--shadow)}
+  .stars{color:var(--accent);letter-spacing:3px;margin-bottom:16px}
+  .review blockquote{color:var(--ink-2);font-size:.98rem;flex:1;margin-bottom:24px}
+  .who{display:flex;align-items:center;gap:12px;padding-top:20px;border-top:1px solid var(--line)}
+  .avatar{width:44px;height:44px;border-radius:50%;background:var(--ink);color:var(--accent-2);display:grid;place-items:center;font-weight:700;font-size:.9rem}
+  .who b{display:block;font-size:.95rem}
+  .who span{color:var(--muted);font-size:.85rem}
+
+  /* CONTACT */
+  .contact{background:var(--card);border-top:1px solid var(--line)}
+  .contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+  .contact h2{font-size:clamp(2rem,3.6vw,2.8rem);margin:14px 0 14px}
+  .contact .intro{color:var(--muted);margin-bottom:32px}
+  .info{list-style:none;display:grid;gap:14px}
+  .info li{display:flex;gap:14px;align-items:center;padding:16px 18px;background:var(--paper);border-radius:14px}
+  .info small{display:block;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700}
+  .info a,.info p{font-weight:600}
+  form{background:var(--paper);border-radius:22px;padding:34px;border:1px solid var(--line)}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  label{display:block;font-size:.85rem;font-weight:600;margin-bottom:16px}
+  input,textarea,select{width:100%;margin-top:6px;padding:13px 15px;border:1.5px solid var(--line);border-radius:12px;font:inherit;font-size:.95rem;background:#fff;color:var(--ink);transition:border-color .2s,box-shadow .2s}
+  input:focus,textarea:focus,select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px rgba(224,145,58,.15)}
+  textarea{resize:vertical;min-height:110px}
+  form .btn{width:100%;justify-content:center;margin-top:4px}
+  .fine{font-size:.8rem;color:var(--muted);text-align:center;margin-top:14px}
+
+  footer{background:var(--ink);color:rgba(255,255,255,.65);padding:40px 0;font-size:.88rem}
+  .foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+  footer .logo{color:#fff}
+  footer a:hover{color:var(--accent-2)}
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media (max-width:900px){
+    .hero-grid,.contact-grid{grid-template-columns:1fr}
+    .steps,.why-grid,.reviews{grid-template-columns:1fr}
+    .steps::before{display:none}
+    .stats-grid{grid-template-columns:1fr}
+    .stat{border-right:0;border-bottom:1px solid var(--line)}
+    .stat:last-child{border-bottom:0}
+    .nav-links{display:none;position:absolute;top:72px;left:0;right:0;background:var(--ink);flex-direction:column;padding:20px;gap:18px}
+    .nav-links.open{display:flex}
+    .menu-btn{display:block}
+    section{padding:72px 0}
+  }
+  @media (max-width:560px){ .row{grid-template-columns:1fr} form{padding:24px} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#" class="logo"><span class="logo-mark">AYN</span><span>AYN Limited<small>Utility Brokerage</small></span></a>
+    <nav class="nav-links" id="nav">
+      <a href="#how">How it works</a>
+      <a href="#why">Why us</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#contact" class="btn btn-primary">Get a quote</a>
+    </nav>
+    <button class="menu-btn" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Business Utility Brokerage</span>
+      <h1>Smarter contracts, <em>simpler</em> renewals for your business utilities.</h1>
+      <p class="lead">We compare trusted suppliers, take care of the switch and keep track of every renewal — so your business lands the right water and energy deal without the paperwork.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-primary">Get a free quote →</a>
+        <a href="#how" class="btn btn-ghost">See how it works</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h4>What we look after</h4>
+      <div class="bill"><span>Business electricity</span><strong>Compared</strong></div>
+      <div class="bill"><span>Business gas</span><strong>Compared</strong></div>
+      <div class="bill"><span>Business water</span><strong>Compared</strong></div>
+      <div class="bill"><span>Contract review</span><strong>Free<span class="tag">No cost</span></strong></div>
+      <p class="note">One account manager from quote to renewal.</p>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat"><b>100+</b><span>Businesses supported</span></div>
+      <div class="stat"><b>97%</b><span>Clients who renew with us</span></div>
+      <div class="stat"><b>2 yrs</b><span>Helping firms cut bills</span></div>
+    </div>
+    <div class="chips">
+      <span class="chip"><b>Water</b> &amp; energy contracts</span>
+      <span class="chip"><b>No-cost</b> contract review</span>
+      <span class="chip"><b>End-to-end</b> switching handled</span>
+    </div>
+  </div>
+</div>
+
+<section id="how">
+  <div class="wrap">
+    <div class="head center reveal">
+      <span class="eyebrow">How it works</span>
+      <h2>Three simple steps. We do the heavy lifting.</h2>
+      <p>From the first conversation to a signed contract, our team handles it all.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="step-num">01</div><h3>We review</h3><p>Tell us your current supplier and usage. We check your existing contract and renewal dates free of charge.</p></div>
+      <div class="step reveal"><div class="step-num">02</div><h3>We compare</h3><p>We weigh up rates across our supplier partners to find the contract that suits your business best.</p></div>
+      <div class="step reveal"><div class="step-num">03</div><h3>We switch you</h3><p>We sort the paperwork, the switch or renewal, and stay on hand for the full length of your contract.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="why" id="why">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Why AYN Limited</span>
+      <h2>A brokerage that's firmly on your side.</h2>
+      <p>Independent, transparent and focused on your business — from the very first quote through every renewal.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
+        <h3>Whole-of-panel comparison</h3>
+        <p>We compare across our authorised supplier partners so you only see the options that genuinely fit.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15l2 2 4-4"/></svg></div>
+        <h3>Zero-hassle admin</h3>
+        <p>Contract paperwork, the switch and renewal deadlines — all handled for you, end to end.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></svg></div>
+        <h3>One dedicated contact</h3>
+        <p>Every client gets their own account manager for the entire life of the contract.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="testimonials">
+  <div class="wrap">
+    <div class="head center reveal">
+      <span class="eyebrow">Client feedback</span>
+      <h2>What our clients say.</h2>
+    </div>
+    <div class="reviews">
+      <div class="review reveal">
+        <div class="stars">★★★★★</div>
+        <blockquote>“Switching our business utility contracts through AYN Limited was one of the best decisions we've made. Their team explained every option clearly, secured a competitive fixed-rate contract, and handled the entire switching process without disrupting our operations. The level of professionalism and communication was outstanding from start to finish. I would highly recommend them to any SME looking to reduce their energy costs.”</blockquote>
+        <div class="who"><div class="avatar">DH</div><div><b>David Harrison</b><span>Owner, Harrison Butchers</span></div></div>
+      </div>
+      <div class="review reveal">
+        <div class="stars">★★★★★</div>
+        <blockquote>“AYN Limited delivered exactly what they promised. We were spending far too much on our electricity contract, and their consultants found us a much better deal while taking care of all the paperwork. The process was simple, transparent, and completely stress-free. Their customer service has been exceptional, and we'll definitely be using them again when our contracts are due for renewal.”</blockquote>
+        <div class="who"><div class="avatar">RA</div><div><b>Rashid Awan</b><span>Manager, Zahaus Pizza</span></div></div>
+      </div>
+      <div class="review reveal">
+        <div class="stars">★★★★★</div>
+        <blockquote>“As a growing business, keeping our operating costs under control is essential. AYN Limited helped us secure a much more competitive energy tariff and provided honest, straightforward advice throughout the process. Their knowledge of the commercial energy market gave us complete confidence that we were making the right decision. I wouldn't hesitate to recommend them to other UK businesses.”</blockquote>
+        <div class="who"><div class="avatar">ZA</div><div><b>Zamir Ahmed</b><span>Director, Grill &amp; Slice Ltd</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <span class="eyebrow">Get started</span>
+      <h2>Request your free quote.</h2>
+      <p class="intro">Tell us about your current utilities and we'll come back with options — usually within one working day.</p>
+      <ul class="info">
+        <li><div><small>Phone</small><a href="tel:+442081357655">020 8135 7655</a></div></li>
+        <li><div><small>Email</small><a href="mailto:info@aynlimited.site">info@aynlimited.site</a></div></li>
+        <li><div><small>Hours</small><p>Mon–Sat, 9am–5pm</p></div></li>
+      </ul>
+    </div>
+    <form name="quote" method="POST" data-netlify="true" netlify-honeypot="company-website" class="reveal">
+      <input type="hidden" name="form-name" value="quote">
+      <p hidden><label>Leave empty <input name="company-website"></label></p>
+      <div class="row">
+        <label>Full name<input name="name" required></label>
+        <label>Business name<input name="business" required></label>
+      </div>
+      <div class="row">
+        <label>Email<input type="email" name="email" required></label>
+        <label>Phone<input type="tel" name="phone"></label>
+      </div>
+      <label>Current supplier<input name="supplier"></label>
+      <label>Anything else?<textarea name="message"></textarea></label>
+      <button class="btn btn-primary" type="submit">Request my quote →</button>
+      <p class="fine">We'll only use your details to prepare your quote.</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <a href="#" class="logo"><span class="logo-mark">AYN</span><span>AYN Limited</span></a>
+    <p>© <span id="yr"></span> AYN Limited — Business Utility Brokerage · <a href="/privacy">Privacy Policy</a> · <a href="/terms">Terms</a></p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  document.querySelectorAll('#nav a').forEach(a => a.addEventListener('click', () => document.getElementById('nav').classList.remove('open')));
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
